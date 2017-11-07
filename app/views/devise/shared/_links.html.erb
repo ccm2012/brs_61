@@ -1,0 +1,23 @@
+<ul class= "link-shared">
+  <% if controller_name != t("pages.link_shared.session") %>
+    <%= link_to t("pages.title.log_in"),
+      new_session_path(resource_name) %><br />
+  <% end %>
+
+  <% if devise_mapping.registerable? &&
+    controller_name != t("pages.link_shared.register") %>
+    <%= link_to t("pages.title.sign_up"),
+      new_registration_path(resource_name) %><br />
+  <% end %>
+
+  <% if devise_mapping.recoverable? && controller_name != t("pages.pass") &&
+    controller_name != t("pages.link_shared.register") %>
+    <%= link_to t("pages.title.forgot_pass"),
+      new_password_path(resource_name) %><br />
+  <% end %>
+
+  <% if devise_mapping.confirmable? && controller_name != t("pages.confir") %>
+    <%= link_to t("pages.not_receive"),
+      new_confirmation_path(resource_name) %><br />
+  <% end %>
+</ul>

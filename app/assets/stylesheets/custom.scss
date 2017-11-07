@@ -1,0 +1,23 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap/theme';
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.link-shared {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+label {
+  padding-top: 10px;
+}
+
+.gravatar-edit {
+  margin-top: 15px;
+}

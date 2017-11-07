@@ -1,0 +1,28 @@
+<% provide :title, t("pages.title.change_pass") %>
+<% header t("pages.title.change_pass") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for resource, as: resource_name,
+      url: password_path(resource_name), html: {method: :put} do |f| %>
+      <%= devise_error_messages! %>
+
+      <%= f.hidden_field :reset_password_token %>
+
+      <%= f.label :password, t("pages.new_pass") %>
+      <% if @minimum_password_length %>
+        <em><%= @minimum_password_length %><%= t "pages.min_character" %></em><br />
+      <% end %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "off",
+        class: "form-control" %>
+
+      <%= f.label :password_confirmation, t("pages.confirm_pass") %>
+      <%= f.password_field :password_confirmation, autocomplete: "off",
+        class: "form-control" %>
+      </br>
+      <%= f.submit t("pages.change_my_pass"),
+        class: "btn btn-primary btn-block" %>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
