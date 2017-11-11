@@ -22,4 +22,7 @@ class User < ApplicationRecord
   has_many :interested_categories, through: :interest_relationships,
     source: :targetable,
     source_type: Category.name
+
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :trackable, :validatable, :confirmable
 end

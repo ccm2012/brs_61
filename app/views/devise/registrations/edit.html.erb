@@ -1,0 +1,47 @@
+<% provide :title, t("pages.title.edit_user") %>
+<% header t("pages.title.edit_user") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for resource, as: resource_name,
+      url: registration_path(resource_name), html: {method: :put} do |f| %>
+      <%= devise_error_messages! %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control" %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <span class="label label-info"><% t "pages.wait_confirm" %>
+          <%= resource.unconfirmed_email %></span>
+      <% end %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off",
+        class: "form-control"  %>
+      <span class="help-block">
+        <% t "pages.leave_blank" %></span>
+
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off",
+        class: "form-control"  %>
+
+      <%= f.label :current_password %>
+      <%= f.password_field :current_password, autocomplete: "off",
+        class: "form-control"  %>
+      <span class="help-block">
+        <% t "pages.need_old_pass" %></span>
+
+      <%= f.submit t("pages.update"), class: "btn btn-primary btn-block" %>
+    <% end %>
+
+    <div class="gravatar-edit">
+      <%= gravatar_for current_user, 80 %>
+      <%= link_to t("pages.change"), t("pages.url.change_img")%>
+    </div>
+
+    <%= link_to t("pages.return"), :back,
+      class: "btn btn-default active pull-right" %>
+  </div>
+</div>

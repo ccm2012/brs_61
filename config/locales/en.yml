@@ -1,2 +1,54 @@
 en:
-  hello: "Hello world"
+  pages:
+    title:
+      default: "My Project"
+      home: "Home"
+      resend: "Resend confirm"
+      change_pass: "Change password"
+      forgot_pass: "Forgot password"
+      edit_user: "Edit User"
+      sign_up: "Sign up"
+      log_in: "Log in"
+      profile: "Profile"
+      log_out: "Log out"
+      sign_in: "Sign in"
+    header:
+      resend: "Resend confirmation instructions"
+    mailer:
+      welcome: "Welcome "
+      confirm: "Confirm my account"
+      hello: "Hello "
+      change_pass: "Change my password"
+    url:
+      change_img: "http://gravatar.com/emails"
+    link_shared:
+      session: "sessions"
+      register: "registrations"
+    instructions: "You can confirm your account email through the link below:"
+    change_pass: "Someone has requested a link to change your password. You
+      can do this through the link below."
+    dont_want_change: "If you didn't request this, please ignore this email."
+    not_change: "Your password won't change until you access the link above
+      and create a new one."
+    new_pass: "New password"
+    confirm_pass: "Confirm new password"
+    change_my_pass: "Change my password"
+    resend_pass: "Send me reset password instructions"
+    wait_confirm: "Currently waiting confirmation for:"
+    leave_blank: "leave blank if you don't want to change it"
+    need_old_pass: "We need your current password to confirm your changes"
+    update: "Update"
+    change: "Change"
+    unhappy: "Unhappy?"
+    need_cancel: "You can cancel account by buttton below"
+    cancel_butt: "Cancel my account"
+    you_sure? : "Are you sure?"
+    return: "Return"
+    min_character: " characters minimum"
+    pass: "passwords"
+    confir: "confirmations"
+    not_receive: "Didn't receive confirmation instructions?"
+    to_register: "Register to get started."
+    register: "Register"
+  project_name: "Book Reviewing System"
+

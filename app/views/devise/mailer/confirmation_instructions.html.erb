@@ -1,0 +1,5 @@
+<p><%= t "pages.mailer.welcome" %><%= @email %></p>
+<p><%= t "pages.instructions" %></p>
+
+<p><%= link_to t("pages.mailer.confirm"),
+  confirmation_url(@resource, confirmation_token: @token) %></p>
