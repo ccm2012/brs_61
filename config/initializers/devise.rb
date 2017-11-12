@@ -24,7 +24,7 @@ Devise.setup do |config|
 
   config.reset_password_within = 6.hours
 
-  config.sign_in_after_reset_password = true
+  config.sign_in_after_reset_password = false
 
   config.sign_out_via = :delete
 end

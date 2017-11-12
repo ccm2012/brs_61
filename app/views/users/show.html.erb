@@ -1,0 +1,12 @@
+<% provide :title, @user.name %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user-info">
+      <h2 class="img-profile">
+        <%= gravatar_for @user, 80 %>
+        <%= @user.name %>
+      </h2>
+      <p><%= l Time.now, format: :short %></p>
+    </section>
+  </aside>
+</div>
