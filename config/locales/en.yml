@@ -12,6 +12,8 @@ en:
       profile: "Profile"
       log_out: "Log out"
       sign_in: "Sign in"
+      settings: "Settings"
+      admin_edit: "Edit other user"
     header:
       resend: "Resend confirmation instructions"
     mailer:
@@ -49,6 +51,23 @@ en:
     confir: "confirmations"
     not_receive: "Didn't receive confirmation instructions?"
     to_register: "Register to get started."
-    register: "Register"
+    register: "There are so many things that we want to talk about.
+      But now is not the right time"
+    errors: "errors"
+    form_contain: "The form contains "
+    save_chang: "Save changes"
+    create_user: "Create a new User"
+    new_create: "Create user"
+  user_for:
+    delete: "Delete"
+    confirm: "Are you sure?"
+    vertical_bar: " | "
+    all_users: "All users"
+    unactive_since: "active since %{param} ago"
+    not_authorized: "You are not authorized to access this page."
+    success_create: "Success add new user. You can check in list"
+    success_update: "Success update user %{param}. You can check in list"
+    success_destroy: "Success delete user %{param}."
+    users: "Users"
   project_name: "Book Reviewing System"
 

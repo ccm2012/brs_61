@@ -1,0 +1,16 @@
+<li>
+  <%= gravatar_for user, 50 %>
+  <%= link_to user.name, user %>
+  <% if can?(:destroy, user) && !user.equal_user?(current_user) %>
+    </br>
+    <%= link_to t("pages.update"), edit_user_path(user) %>
+    <%= t "user_for.vertical_bar" %>
+    <%= link_to t("user_for.delete"), user, method: :delete,
+      data: {confirm: t("user_for.confirm")} %>
+    </br>
+    <span class="timestamp">
+      <%= t "user_for.unactive_since",
+        param: time_ago_in_words(user.updated_at) %>
+    </span>
+  <% end %>
+</li>

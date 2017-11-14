@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  ATTRIBUTE_PARAMS = %i(name email password password_confirmation)
+  NO_PASS_ATTRIBUTE_PARAMS = %i(name email)
+
   has_many :bills, dependent: :destroy
   has_many :reading_histories, dependent: :destroy
   has_many :reviews, dependent: :destroy
@@ -24,5 +27,9 @@ class User < ApplicationRecord
     source_type: Category.name
 
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable, :confirmable
+    :recoverable, :rememberable, :validatable
+
+  def equal_user? user
+    self == user
+  end
 end

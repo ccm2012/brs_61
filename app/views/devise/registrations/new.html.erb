@@ -15,7 +15,7 @@
       <%= f.label :password %>
       <%= f.password_field :password, autocomplete: "off",
         class: "form-control" %>
-      <% if @validatable %>
+      <% unless @validatable %>
         <span class="help-block"><%= @minimum_password_length %>
           <%= t "pages.min_character" %></span>
       <% end %>
