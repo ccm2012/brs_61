@@ -1,3 +1,7 @@
+FeatureEnvy:
+  exclude:
+    - "BooksController#load_categories"
+
 IrresponsibleModule:
   enabled: false
 

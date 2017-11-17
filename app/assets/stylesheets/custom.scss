@@ -2,6 +2,8 @@
 @import 'bootstrap';
 @import 'bootstrap/theme';
 
+$dark-gray: #a9a9a9;
+
 aside {
 
   section {
@@ -63,4 +65,62 @@ label {
     overflow: auto;
     padding: 10px 0;
   }
+}
+
+.books {
+  list-style: none;
+  margin: 0;
+
+  li {
+    border-bottom: 1px solid $gray-lighter;
+    overflow: auto;
+    padding: 10px 0;
+  }
+}
+
+.book-pictrue {
+  float: left;
+  height: 60px;
+  margin-right: 5px;
+  width: 60px;
+}
+
+.book-content {
+  margin-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.footer {
+  color: $gray-light;
+  margin-bottom: 10px;
+  margin-top: 45px;
+  padding-top: 5px;
+}
+
+.book-container {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.book-info-right {
+  margin-top: 110px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.books-header {
+  margin-right: 30px;
+}
+
+.reviews-area {
+  font-size: 18px;
+  margin-top: 200px;
+}
+
+.top-border {
+  border-top: 1px solid $dark-gray;
 }
