@@ -1,0 +1,46 @@
+<% provide :title, @book.title %>
+<%= header @book.title %>
+
+<% if @book.picture? %>
+  <%= image_tag @book.picture.url %>
+<% end %>
+<p class="pull-right">
+  <strong><%= t "book_for.in_category" %>
+    <%= @result.key @book.category_id %></strong>
+</p>
+<div class="container book-container">
+  <div class="col-sm-9 book-info">
+    <p>
+      <%= t "book_for.written_by" %><strong><%= @book.author %></strong>
+    </p>
+    <p><%= t "book_for.publish_at" %><%= @book.date_published %></p></br>
+    <p><strong><%= t "book_for.summary" %></strong></p>
+    <p><%= @book.summary %></p>
+    <% unless @book.description.empty? %>
+      <div class="top-border">
+        <h3 class="text-center"><%= t "book_for.chapters" %></h3>
+        <p><%= simple_format @book.description %></p>
+      </div>
+    <% end %>
+    <div class="top-border">
+      <h3 class="text-center"><%= t "book_for.book_content" %></h3>
+      <p><%= @book.content %></p>
+    </div>
+  </div>
+  <div class="col-sm-3 pull-right book-info-right">
+      <span class="btn-default btn-lg disabled pull-right">
+        <%= @book.rating %></span>
+      <% if @book.price? %>
+        <div class="container pull-right">
+          <p class="btn pull-right"><%= t "book_for.price" %>
+            <%= @book.price %></p>
+          </br>
+          </br>
+          <%= link_to t("book_for.add_bill"), t("none"),
+            class: "btn btn-default active pull-right" %>
+        </div>
+      <% end %>
+      <p class="text-center reviews-area"><%= t "book_for.reviews" %></p>
+      <p><%= @book.content %></p>
+  </div>
+</div>

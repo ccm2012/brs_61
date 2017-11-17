@@ -1,0 +1,14 @@
+<li>
+  <% if book.picture? %>
+    <%= image_tag book.picture.url %>
+  <% else %>
+    <%= image_tag t("book_for.picture_address"),
+      alt: t("book_for.picture"), class: "book-pictrue" %>
+  <% end %>
+  <%= link_to book.title, book %>
+  </br>
+  <%= link_to t("pages.update"), edit_book_path(book) %>
+  <%= t "user_for.vertical_bar" %>
+  <%= link_to t("user_for.delete"), book, method: :delete,
+    data: {confirm: t("user_for.confirm")} %>
+</li>

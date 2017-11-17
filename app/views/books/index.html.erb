@@ -1,0 +1,10 @@
+<% provide :title, t("book_for.title_index") %>
+<h1><%= t "book_for.title_index" %></h1>
+
+<%= link_to t("book_for.button_create"), new_book_path,
+  class: "btn btn-default btn-lg active pull-right" %>
+<%= will_paginate %>
+<ul class="books">
+  <%= render @books %>
+</ul>
+<%= will_paginate %>
