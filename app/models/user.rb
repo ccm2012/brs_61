@@ -26,6 +26,9 @@ class User < ApplicationRecord
     source: :targetable,
     source_type: Category.name
 
+  validates :name, presence: true,
+    length: {maximum: Settings.max_length.name}
+
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
 

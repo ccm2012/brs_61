@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108075255) do
+ActiveRecord::Schema.define(version: 20171117030707) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "user_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20171108075255) do
     t.text "summary"
     t.text "description"
     t.text "content"
-    t.float "rating"
+    t.float "rating", default: 0.0
     t.integer "price"
     t.string "picture"
     t.datetime "created_at", null: false

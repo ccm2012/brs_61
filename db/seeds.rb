@@ -12,6 +12,25 @@
   User.create!(
     name: name,
     email: email,
-    password: encrypted_password,
+    password: encrypted_password
+  )
+end
+
+category = %W(Ruby Php Android)
+3.times do |n|
+  Category.create! name: category[n-1]
+end
+
+category_a = (1..3).to_a
+35.times do |n|
+  category_id = category_a.sample
+  title = "Book-#{n*10}"
+  author = "Author-#{n}"
+  Book.create!(
+    category_id: category_id,
+    title: title,
+    author: author,
+    date_published: Time.zone.now,
+    rating: 0
   )
 end
