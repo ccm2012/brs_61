@@ -7,7 +7,12 @@
       <ul class="nav navbar-nav pull-right">
         <li><%= link_to t("pages.title.home"), root_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to t("user_for.users"), users_path %></li>
+          <% if current_user.admin? %>
+            <li><%= link_to t("pages.title.manage_book"), books_path %></li>
+            <li><%= link_to t("pages.title.manage_user"), users_path %></li>
+          <% else %>
+            <li><%= link_to t("user_for.users"), users_path %></li>
+          <% end %>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
               <%= gravatar_for current_user, 22 %>

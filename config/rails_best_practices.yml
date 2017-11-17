@@ -24,14 +24,10 @@ RemoveEmptyHelpersCheck: { }
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: { }
 RemoveUnusedMethodsInControllersCheck: {
-  except_methods: [
-    "PagesController#index",
-    "UsersController#index",
-    "UsersController#new",
-    "UsersController#create",
-    "UsersController#show",
-    "UsersController#edit",
-    "UsersController#update"
+  ignored_files: [
+    "app/controllers/pages_controller",
+    "app/controllers/users_controller",
+    "app/controllers/books_controller"
   ]
 }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
