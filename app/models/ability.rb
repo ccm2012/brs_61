@@ -8,7 +8,7 @@ class Ability
       can :manage, [User, Book]
     else
       can :read, User
-      can [:read, :search], Book
+      can [:show, :search], Book
     end
     can :show, Category
     can %i(create update destroy), ReadingHistory

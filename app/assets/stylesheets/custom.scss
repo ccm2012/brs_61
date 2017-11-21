@@ -90,7 +90,7 @@ label {
 .book-search {
   float: left;
   padding-left: 10px;
-  padding-right: 10px
+  padding-right: 10px;
 }
 
 .book-pictrue {
@@ -221,15 +221,15 @@ th {
 }
 
 .info {
-  visibility: hidden;
-  width: 170px;
   background-color: $white;
-  color: $black-medium;
   border-style: ridge;
-  padding: 5px 0;
+  color: $black-medium;
   margin-left: 75px;
   margin-top: 75px;
+  padding: 5px 0;
   position: absolute;
+  visibility: hidden;
+  width: 170px;
 }
 
 .book-search:hover .info {
