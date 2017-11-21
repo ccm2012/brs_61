@@ -7,4 +7,8 @@ module ApplicationHelper
   def header text
     content_for(:header){text.to_s}
   end
+
+  def book_search
+    @search = Book.search params[:q]
+  end
 end

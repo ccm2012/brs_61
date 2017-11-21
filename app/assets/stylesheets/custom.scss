@@ -1,8 +1,17 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bootstrap/theme';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 $dark-gray: #a9a9a9;
+$gray-medium: #ddd;
+$gray-light: #f2f2f2;
+$blue-medium: #4682b4;
+$orange: #f0ad4e;
+$dark-orange: #eea236;
+$black-medium: #1a1a1a;
+$white: #fff;
 
 aside {
 
@@ -78,11 +87,24 @@ label {
   }
 }
 
+.book-search {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px
+}
+
 .book-pictrue {
   float: left;
   height: 60px;
   margin-right: 5px;
   width: 60px;
+}
+
+.picture-search {
+  float: left;
+  height: 100px;
+  margin-right: 5px;
+  width: 100px;
 }
 
 .book-content {
@@ -92,7 +114,8 @@ label {
 }
 
 .footer {
-  color: $gray-light;
+  border-bottom: 1px solid $dark-gray;
+  color: $black-medium;
   margin-bottom: 10px;
   margin-top: 45px;
   padding-top: 5px;
@@ -123,4 +146,92 @@ label {
 
 .top-border {
   border-top: 1px solid $dark-gray;
+}
+
+.table-center {
+  margin: auto;
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid $gray-medium;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: $gray-light;
+}
+
+th {
+  background-color: $blue-medium;
+  color: $white;
+}
+
+.mark-center {
+  margin: auto;
+  width: 23%;
+}
+
+.float-left {
+  float: left;
+}
+
+.clicked {
+  background-color: $orange;
+  border-color: $dark-orange;
+  color: $white;
+}
+
+.color-black {
+  border-color: $black-medium;
+  color: $black-medium;
+}
+
+.reading-histories {
+  padding-left: 10px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.search-area {
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.favorite-books {
+  margin-top: 40px;
+}
+
+.author {
+  margin-left: 79px;
+}
+
+.info {
+  visibility: hidden;
+  width: 170px;
+  background-color: $white;
+  color: $black-medium;
+  border-style: ridge;
+  padding: 5px 0;
+  margin-left: 75px;
+  margin-top: 75px;
+  position: absolute;
+}
+
+.book-search:hover .info {
+  visibility: visible;
 }

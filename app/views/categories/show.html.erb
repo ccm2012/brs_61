@@ -1,0 +1,24 @@
+<% provide :title, @title %>
+<h1><%= @title %></h1>
+
+<% if @books.all.empty? %>
+  <h4 class="text-center"><strong><%= t "categories.no_result" %></strong></h4>
+<% else %>
+<div class="row">
+  <div class="col-md-9 col-md-offset-2">
+    <% @books.each do |book| %>
+      <div class="book-search">
+        <%= link_to image_tag( t("book_for.picture_address"),
+          class: "picture-search"), book %>
+        <div class="info">
+          <p><%= t "categories.title" %><%= book.title %></p>
+          <p><%= t "categories.author" %><%= book.author %></p>
+          <p><%= t "categories.rating" %><%= book.rating %></p>
+          <p><%= t "categories.published" %>
+            <%= book.date_published.to_s :short %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

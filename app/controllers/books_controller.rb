@@ -39,6 +39,13 @@ class BooksController < ApplicationController
     redirect_to books_url
   end
 
+  def search
+    @title = t "pages.title.search"
+    search = Book.search params[:q]
+    @books = search.result.paginate page: params[:page]
+    render "categories/show"
+  end
+
   private
 
   def load_categories

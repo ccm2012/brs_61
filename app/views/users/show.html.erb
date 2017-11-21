@@ -8,5 +8,33 @@
       </h2>
       <p><%= l Time.now, format: :short %></p>
     </section>
+    </br>
+    <div class="favorite-books">
+      <p><strong><%= t "user_for.favor_books" %></strong></p>
+      <% @user.favorite_books.each do |history| %>
+        <%= link_to image_tag( t("book_for.picture_address"),
+          class: "book-pictrue"), history.book %>
+        <%= link_to history.book.title, history.book, class: "btn" %>
+        <p class="author"><%= t "user_for.author",
+          param: history.book.author %></p>
+      <% end %>
+    </div>
   </aside>
+  <div class="col-md-8">
+    <% if @user.equal_user?(current_user) && @user.reading_histories.any? %>
+      <h3><%= t "user_for.history" %></h3>
+      <ol class="reading-histories">
+        <% @reading_histories.each do |history| %>
+          <%= gravatar_for @user, 40 %>
+          <span><%= @user.name %></span>
+          <p><%= t "user_for.mark_book" %>
+            <%= link_to history.book.title, history.book %>
+            <%= t "user_for.as" %>
+            <strong><%= history.mark_as %></strong><%= t "user_for.book" %>
+          </p>
+        <% end %>
+      </ol>
+      <%= will_paginate @reading_histories %>
+    <% end %>
+  </div>
 </div>

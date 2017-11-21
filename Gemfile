@@ -21,6 +21,8 @@ gem "cancancan"
 gem "will_paginate"
 gem "bootstrap-will_paginate"
 gem "config"
+gem "ransack"
+gem "font-awesome-sass"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

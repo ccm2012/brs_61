@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :book_categories
 
   rescue_from CanCan::AccessDenied, with: :not_authorized
 
@@ -15,5 +16,9 @@ class ApplicationController < ActionController::Base
   def not_authorized
     flash[:warning] = t "user_for.not_authorized"
     redirect_to root_url
+  end
+
+  def book_categories
+    @categories = Category.all
   end
 end

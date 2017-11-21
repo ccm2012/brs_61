@@ -1,6 +1,13 @@
 <% provide :title, @book.title %>
 <%= header @book.title %>
 
+<div class="mark-center">
+  <%= link_to_toggle_book_reading_histories @book, t("book_for.reading") %>
+  <%= link_to_toggle_book_reading_histories @book, t("book_for.read") %>
+  <%= link_to_toggle_book_reading_histories @book, t("book_for.favorite") %>
+</div>
+</br></br></br>
+
 <% if @book.picture? %>
   <%= image_tag @book.picture.url %>
 <% end %>
