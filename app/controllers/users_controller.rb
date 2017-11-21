@@ -19,7 +19,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @reading_histories = user.reading_histories.paginate page: params[:page]
+  end
 
   def edit; end
 

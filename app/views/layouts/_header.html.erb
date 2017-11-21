@@ -1,7 +1,15 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse header">
   <div class="container">
     <div class="navbar-header">
       <%= link_to t("project_name"), root_path, class: "navbar-brand" %>
+      <% if user_signed_in? %>
+        <div class="pull-right search-area">
+        <%= search_form_for book_search, url: search_url do |f| %>
+          <%= f.text_field :title_or_author_cont,
+            placeholder: t("categories.search_holder") %>
+        <% end %>
+        </div>
+      <% end %>
     </div>
     <div id="navbar">
       <ul class="nav navbar-nav pull-right">
@@ -13,6 +21,16 @@
           <% else %>
             <li><%= link_to t("user_for.users"), users_path %></li>
           <% end %>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <%= t "pages.title.categories" %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <% categories.each do |category| %>
+                <li><%= link_to category.name, category %></li>
+              <% end %>
+            </ul>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
               <%= gravatar_for current_user, 22 %>
