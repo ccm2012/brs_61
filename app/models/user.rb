@@ -35,4 +35,8 @@ class User < ApplicationRecord
   def equal_user? user
     self == user
   end
+
+  def favorite_books
+    reading_histories.where mark_as: "favorite"
+  end
 end
