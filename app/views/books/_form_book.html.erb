@@ -26,5 +26,9 @@
   <%= f.label :price %>
   <%= f.number_field :price, class: "form-control" %>
   </br>
+  <span class="picture">
+    <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+  </span>
+  </br>
   <%= f.submit yield(:button_text), class: "btn btn-primary btn-block" %>
 <% end %>

@@ -1,0 +1,32 @@
+<%= form_for review, remote: true do |f| %>
+  <div class="form-group review form-review">
+    <p class="review-title">
+      <%= t "book_for.blan_review", param:
+        (review.new_record? ? t("book_for.adding") : t("book_for.editing")) %>
+    </p>
+    <%= render "shared/error_messages", object: f.object %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content, placeholder: t("book_for.write_review"),
+      class: "form-control" %>
+
+    <%= f.label :rate %>
+    <%= f.number_field :rate, class: "form-control" %>
+    </br>
+    <span class="picture">
+      <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+    </span>
+    </br>
+    <%= f.submit t("book_for.submit"), class: "btn btn-primary btn" %>
+    <% if review.new_record? %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :book_id, value: book.id %>
+
+      <%= link_to t("book_for.cancel"), "#new-link", id: "back",
+        class: "btn btn-default active float-right" %>
+    <% else %>
+      <%= link_to t("book_for.cancel"), "#review-#{review.id}",
+        id: "back-review", class: "btn btn-default active float-right" %>
+    <% end %>
+  </div>
+<% end %>
