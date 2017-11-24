@@ -40,7 +40,7 @@
   </div>
   <div class="col-md-7 summary">
     <p><strong><%= t "book_for.summary" %></strong></p>
-    <p><%= truncate @book.summary, length: 1000 %></p>
+    <span class="more"><%= @book.summary %></span>
   </div>
   <div class="container for-descript">
     <button type="button" class="btn btn-primary button-content"
@@ -91,7 +91,7 @@
           book_id: @book, where: 2), id:"new-link-2", remote: true,
           class: "btn-warning btn active" %>
       </div>
-      <% if @book.load_reviews.any? %>
+      <% if @book.reviews.any? %>
         <%= render "reviews/index", reviews: @book.reviews.set_order %>
       <% else %>
         <p><%= t "book_for.no_one_review" %></p>

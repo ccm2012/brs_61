@@ -32,7 +32,8 @@ RemoveUnusedMethodsInControllersCheck: {
     "app/controllers/pages_controller",
     "app/controllers/users_controller",
     "app/controllers/books_controller",
-    "app/controllers/categories_controller"
+    "app/controllers/categories_controller",
+    "app/controllers/reviews_controller"
   ]
 }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
