@@ -1,1 +1,2 @@
+$("#flash").html('<%= content_tag :div, flash.now[:warning], class: "alert alert-warning" %>');
 $('#new_review').replaceWith("<%= j render('new', review: @review, book: @book) %>");

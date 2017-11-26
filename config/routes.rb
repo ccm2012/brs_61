@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :books do
     resource :reading_histories, only: %i(create update destroy)
   end
-  resources :reviews
+  resources :reviews do
+    resources :comments
+  end
   resources :categories, only: :show
 end

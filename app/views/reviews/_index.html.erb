@@ -20,16 +20,39 @@
         <p><strong><%= t "book_for.rate", param: review.rate %></strong></p>
         <p class="time-review"><%= review.updated_at.to_s :short %></p>
       </div>
-      <div class="row review">
+      <div class="row">
         <% if review.picture? %>
         <div class="col-sm-3">
           <%= image_tag(review.picture.url, class: "review-image") %></br>
         </div>
-        <% end %>
         <div class="col-sm-8 review-content">
+        <% else %>
+          <div class="col-sm-10 review-content">
+        <% end %>
           <span class="more"><%= review.content %></span>
         </div>
       </div>
+      <div class="review container button-comment">
+        <div class="col-md-10">
+          <%= link_to t("review_for.like"), t("none"),
+            class: "btn-default btn like-review" %>
+          <%= link_to t("review_for.comment"), new_review_comment_path(
+            review_id: review), id: "new-comment-#{review.id}",
+            remote: true, class: "btn-default btn" %>
+          <%= link_to t("review_for.detail"), review,
+            class: "btn button-detail active" %>
+        </div>
+        <div class="col-md-4">
+          <a class="comment-button show-comment" data-id="<%= review.id %>">
+            <%= t "review_for.show_like", param: review.comments.count %>
+          </a>
+        </div>
+      </div>
+      <% if review.comments.any? %>
+        <div class="comment-show-<%= review.id %> collapse">
+          <%= render "comments/index", comments: review.comments.set_order %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>

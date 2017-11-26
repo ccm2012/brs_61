@@ -1,0 +1,32 @@
+<%= form_for [review, comment], remote: true do |f| %>
+  <div class="form-group form-comment col-md-8">
+    <%= render "shared/error_messages", object: f.object %>
+
+    <% unless comment.new_record? %>
+      <p class="time-review">
+        <%= t "comment_for.edit_at", param: comment.updated_at.to_s(:short) %>
+      </p>
+    <% end %>
+
+    <%= f.label :content %>
+    <%= f.text_area :content, placeholder: t("book_for.write_review"),
+      class: "form-control" %>
+    </br>
+    <span class="picture">
+      <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+    </span>
+    </br>
+    <%= f.submit t("book_for.submit"), class: "btn btn-primary btn" %>
+    <% if comment.new_record? %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :review_id, value: review.id %>
+
+      <%= link_to t("book_for.cancel"), "#new-comment-#{review.id}",
+        id: "back", class: "btn btn-default active float-right" %>
+    <% else %>
+      <%= link_to t("book_for.cancel"), "#comment-#{comment.id}",
+        id: "back-review", class: "btn btn-default active float-right" %>
+    <% end %>
+  </div>
+  <div class="container"></div>
+<% end %>

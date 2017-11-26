@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
       flash[:info] = t "review_for.success_create"
       redirect_to book_path(review.book, anchor: "review-#{review.id}")
     else
-      render :create
+      fail_attemped
     end
   end
 
@@ -27,9 +27,9 @@ class ReviewsController < ApplicationController
   def update
     if review.update_attributes review_params
       flash[:info] = t "review_for.success_update"
-      redirect_to book_path(review.book, anchor: "review-#{review.id}")
+      success_redirect
     else
-      render :update
+      fail_attemped
     end
   end
 
@@ -43,6 +43,30 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def fail_attemped
+    flash.now[:warning] = t "review_for.fail_attemped"
+    respond_to do |format|
+      format.html{fail_attemped_next}
+      format.js
+    end
+  end
+
+  def fail_attemped_next
+    if URI(request.referer).path == "/reviews/#{review.id}"
+      render "reviews/show", review: review
+    else
+      render "books/show", book: review.book
+    end
+  end
+
+  def success_redirect
+    if URI(request.referer).path == review_path(review)
+      redirect_to review
+    else
+      redirect_to book_path(review.book, anchor: "review-#{review.id}")
+    end
+  end
 
   def fail_review
     flash[:warning] = t "review_for.fail_attemped"

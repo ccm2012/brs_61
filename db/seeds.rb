@@ -53,11 +53,22 @@ users = (1..3).to_a
   user_id = users.sample
   book_id = n+1
   rate = (1..10).to_a.sample
-  content = "aaaaaaaaa aaaaaaaaa"*150
+  content = "aaaaaaaaa aaaaaaa"*150
   Review.create!(
     user_id: user_id,
     book_id: book_id,
     rate: rate,
+    content: content
+  )
+end
+
+users = (1..3).to_a
+Review.all.each do |review|
+  user_id = users.sample
+  content = "aaaaaaaaa aaaaaaa"*150
+  Comment.create!(
+    user_id: user_id,
+    review_id: review.id,
     content: content
   )
 end
