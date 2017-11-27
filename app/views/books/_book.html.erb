@@ -1,9 +1,9 @@
 <li>
   <% if book.picture? %>
-    <%= image_tag book.picture.url %>
+    <%= link_to image_tag(book.picture.url, class: "book-pictrue"), book %>
   <% else %>
-    <%= image_tag t("book_for.picture_address"),
-      alt: t("book_for.picture"), class: "book-pictrue" %>
+    <%= link_to image_tag(t("book_for.picture_address"),
+      alt: t("book_for.picture"), class: "book-pictrue"), book %>
   <% end %>
   <%= link_to book.title, book %>
   </br>

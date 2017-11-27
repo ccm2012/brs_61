@@ -124,7 +124,7 @@ label {
 .book-container {
   margin-bottom: 20px;
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .book-info-right {
@@ -139,9 +139,8 @@ label {
   margin-right: 30px;
 }
 
-.reviews-area {
+.reviews-text {
   font-size: 18px;
-  margin-top: 200px;
 }
 
 .top-border {
@@ -234,4 +233,142 @@ th {
 
 .book-search:hover .info {
   visibility: visible;
+}
+
+.book-price {
+  margin-top: 25px;
+  padding-right: 0;
+}
+
+.new-review {
+  margin-bottom: 50px;
+}
+
+.form-review {
+  padding-bottom: 15px;
+}
+
+.review {
+  border-bottom: 1px solid $gray-medium;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.text-review {
+  border-bottom: 1px solid $dark-gray;
+  margin-bottom: 20px;
+}
+
+.time-review {
+  color: $dark-gray;
+  margin-left: 10px;
+  width: 200px;
+}
+
+.float-right {
+  float: right;
+}
+
+.button-content {
+  float: left;
+  width: 150px;
+}
+
+.review-title {
+  color: $dark-gray;
+}
+
+.book-author {
+  border-bottom: 1px solid $dark-gray;
+  font-size: 17px;
+}
+
+.book-rate {
+  margin-top: 35px;
+}
+
+.description {
+  background-color: $white;
+  border-style: ridge;
+  color: $black-medium;
+  margin-left: 300px;
+  margin-top: -250px;
+  padding: 5px;
+  position: absolute;
+  visibility: hidden;
+  width: 490px;
+  z-index: 1;
+}
+
+.hover-descript:hover .description {
+  visibility: visible;
+}
+
+.hover-descript {
+  padding: 0;
+}
+
+.for-descript {
+  float: right;
+  margin-bottom: 20px;
+  margin-right: 450px;
+  padding: 0;
+  width: 320px;
+}
+
+.modal-content {
+  margin-left: -150px;
+  width: 950px;
+}
+
+.reviewer {
+  font-size: 18px;
+}
+
+.review-info {
+  margin-left: 90px;
+}
+
+.review-edit {
+  float: right;
+  list-style-type: none;
+  margin-right: 15px;
+}
+
+.review-image {
+  margin-top: 30px;
+  width: 225px;
+}
+
+.summary {
+  margin-bottom: 30px;
+  width: 730px;
+}
+
+.text-descrip {
+  float: right;
+  text-align: center;
+  width: 150px;
+}
+
+.review-picture {
+  width: 300px;
+}
+
+.width-medium {
+  width: 320px;
+}
+
+.book-title {
+  margin-top: 0;
+  text-align: left;
+  width: 470px;
+}
+
+.review-content {
+  margin-top: 20px;
+}
+
+.add-bill {
+  width: 150px;
 }

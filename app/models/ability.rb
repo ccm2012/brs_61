@@ -10,6 +10,8 @@ class Ability
       can :read, User
       can [:show, :search], Book
     end
+    can :manage, Review, user_id: user.id
+    can :read, Review
     can :show, Category
     can %i(create update destroy), ReadingHistory
   end
