@@ -26,8 +26,8 @@
           <%= image_tag(review.picture.url, class: "review-image") %></br>
         </div>
         <% end %>
-        <div class="col-sm-9 review-content">
-          <p><%= truncate review.content, length: 900 %></p>
+        <div class="col-sm-8 review-content">
+          <span class="more"><%= review.content %></span>
         </div>
       </div>
     </div>

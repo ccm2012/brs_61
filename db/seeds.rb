@@ -31,6 +31,33 @@ category_a = (1..3).to_a
     title: title,
     author: author,
     date_published: Time.zone.now,
+    summary: "aaaaaaaaa aaaaaaaaa"*150,
+    content: "aaaaaaaaa aaaaaaaaa"*400,
     rating: 0
+  )
+end
+
+35.times do |n|
+  user_id = [1, 2].sample
+  book_id = n+1
+  mark_as = (0..2).to_a.sample
+  ReadingHistory.create!(
+    user_id: user_id,
+    book_id: book_id,
+    mark_as: mark_as
+  )
+end
+
+users = (1..3).to_a
+35.times do |n|
+  user_id = users.sample
+  book_id = n+1
+  rate = (1..10).to_a.sample
+  content = "aaaaaaaaa aaaaaaaaa"*150
+  Review.create!(
+    user_id: user_id,
+    book_id: book_id,
+    rate: rate,
+    content: content
   )
 end

@@ -23,16 +23,16 @@ gem "bootstrap-will_paginate"
 gem "config"
 gem "ransack"
 gem "font-awesome-sass"
+gem "carrierwave"
+gem "mini_magick"
+gem "fog"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
-  gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
   gem "rspec"
   gem "rspec-rails"
   gem "rspec-collection_matchers"
-  gem "factory_girl_rails"
-  gem "better_errors"
   gem "guard-rspec", require: false
   gem "database_cleaner"
   gem "brakeman", require: false
