@@ -3,18 +3,23 @@
 <% header t "comment_for.show_title", param: @review.book.title %>
 
 <div class="col-md-12 review">
-  <div class="col-md-3 col-md-offset-1">
+  <div class="col-md-11 col-md-offset-1">
     <%= link_to gravatar_for(@review.user, 100), @review.user %>
     <%= link_to @review.user.name, @review.user, class: "reviewer" %></br>
     <p><strong><%= t "book_for.rate", param: @review.rate %></strong></p>
     <p class="time-review"><%= @review.updated_at.to_s :short %></p></br>
-    <% if @review.picture? %>
+  </div>
+  <% if @review.picture? %>
+    <div class="col-md-3 col-md-offset-1">
       </br>
       <h4><%= t "review_for.picture" %></h4>
-      <%= image_tag @review.picture.url %></br>
-    <% end %>
-  </div>
-  <div class="col-md-7 detail-review">
+      <%= image_tag(@review.picture.url, class: "review-show") %></br>
+    </div>
+    <div class="col-md-7 detail-review">
+  <% else %>
+    <div class="col-md-1 col-md-offset-1"></div>
+    <div class="col-md-9 detail-review">
+  <% end %>
     <%= link_to t("review_for.return_book"), @review.book,
       class: "btn btn-default return-book" %>
     <button type="button" class="btn btn-primary button-content"
@@ -44,9 +49,21 @@
   </div>
   <div class="container" id="rerect"></div>
   <div class="col-md-6 col-md-offset-3 detail-edit">
+    <span class="float-left user-likes">
+      <strong id="number-like-<%= @review.id %>">
+        <%= @review.get_upvotes.size %></strong>
+      <%= t "review_for.likes" %>
+    </span>
+    <div class="button-like">
+      <% if current_user.voted_as_when_voted_for @review %>
+        <%= render "unlike", review: @review %>
+      <% else %>
+        <%= render "like", review: @review %>
+      <% end %>
+    </div>
     <%= link_to t("review_for.comment"), new_review_comment_path(
-        review_id: @review), id: "new-comment-#{@review.id}",
-        remote: true, class: "btn-default btn" %>
+      review_id: @review), id: "new-comment-#{@review.id}",
+      remote: true, class: "btn-default btn" %>
     <% if current_user.equal_user? @review.user %>
       <%= link_to t("book_for.delete"), @review ,method: :delete,
         data: {confirm: t("user_for.confirm")},

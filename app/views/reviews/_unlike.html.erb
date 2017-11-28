@@ -1,0 +1,3 @@
+<%= link_to t("review_for.unlike"), review_vote_path(review,1),
+  method: :delete, remote: true, id: "button-like-#{review.id}",
+  class: "btn-default btn-sm fa fa-heart" %>

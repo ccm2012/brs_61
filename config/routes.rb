@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :reviews do
     resources :comments
+    resources :votes, only: %i(create destroy)
   end
   resources :categories, only: :show
 end

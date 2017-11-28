@@ -1,0 +1,3 @@
+<%= link_to t("review_for.like"), review_votes_path(review),
+  method: :post, remote: true, id: "button-like-#{review.id}",
+  class: "btn-default btn-sm fa fa-heart-o" %>

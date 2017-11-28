@@ -2,6 +2,7 @@ class Review < ApplicationRecord
   ATTRIBUTE_PARAMS = %i(user_id book_id rate content picture)
 
   scope :set_order, ->{order("created_at desc")}
+  acts_as_votable
 
   belongs_to :user
   belongs_to :book

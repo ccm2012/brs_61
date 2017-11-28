@@ -34,13 +34,23 @@
       </div>
       <div class="review container button-comment">
         <div class="col-md-10">
-          <%= link_to t("review_for.like"), t("none"),
-            class: "btn-default btn like-review" %>
+          <span class="like-review user-likes float-left">
+            <strong id="number-like-<%= review.id %>">
+              <%= review.get_upvotes.size %></strong>
+            <%= t "review_for.likes" %>
+          </span>
+          <div class="float-left">
+            <% if current_user.voted_as_when_voted_for review %>
+              <%= render "reviews/unlike", review: review %>
+            <% else %>
+              <%= render "reviews/like", review: review %>
+            <% end %>
+          </div>
           <%= link_to t("review_for.comment"), new_review_comment_path(
             review_id: review), id: "new-comment-#{review.id}",
-            remote: true, class: "btn-default btn" %>
+            remote: true, class: "btn-default btn-sm" %>
           <%= link_to t("review_for.detail"), review,
-            class: "btn button-detail active" %>
+            class: "btn-sm btn-default active" %>
         </div>
         <div class="col-md-4">
           <a class="comment-button show-comment" data-id="<%= review.id %>">

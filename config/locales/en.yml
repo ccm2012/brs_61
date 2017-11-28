@@ -148,6 +148,7 @@ en:
     fail_attemped: "Fail attempted. Please check again"
     picture_size: "should be less than 5MB"
     like: " Like"
+    unlike: " Unlike"
     commnet: "Comment"
     detail: "Review detail"
     show_like: "Show %{param} comment"
@@ -155,6 +156,10 @@ en:
     picture: "Picture"
     return_book: "Return to book"
     book_content: "See book content"
+    success_vote: "Success vote for review"
+    likes: " likes"
+    render_unlike: "reviews/unlike"
+    render_like: "reviews/like"
   comment_for:
     success_create: "Success add comment"
     success_update: "Success update comment"

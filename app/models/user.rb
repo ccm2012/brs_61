@@ -2,6 +2,8 @@ class User < ApplicationRecord
   ATTRIBUTE_PARAMS = %i(name email password password_confirmation)
   NO_PASS_ATTRIBUTE_PARAMS = %i(name email)
 
+  acts_as_voter
+
   has_many :bills, dependent: :destroy
   has_many :reading_histories, dependent: :destroy
   has_many :reviews, dependent: :destroy

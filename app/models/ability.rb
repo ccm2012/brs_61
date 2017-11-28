@@ -17,5 +17,6 @@ class Ability
     can :read, Comment
     can :show, Category
     can %i(create update destroy), ReadingHistory
+    can %i(create destroy), Vote
   end
 end

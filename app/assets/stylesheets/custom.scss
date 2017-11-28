@@ -12,6 +12,7 @@ $orange: #f0ad4e;
 $dark-orange: #eea236;
 $black-medium: #1a1a1a;
 $white: #fff;
+$blue-light: #70a7a9;
 
 aside {
 
@@ -270,6 +271,11 @@ th {
   margin-left: 50px;
 }
 
+.user-likes {
+  color: $blue-light;
+  margin-right: 10px;
+}
+
 .comment-content {
   border-bottom: 1px solid $gray-medium;
   border-left: 1px solid $gray-light;
@@ -426,8 +432,8 @@ th {
 }
 
 .detail-review {
-  margin-left: 50px;
-  margin-top: 110px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 .return-book {
@@ -436,4 +442,13 @@ th {
 
 .detail-edit {
   margin-top: 20px;
+}
+
+.review-show {
+  width: 270px;
+}
+
+.button-like {
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
