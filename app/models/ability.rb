@@ -3,6 +3,7 @@ class Ability
 
   def initialize user
     user ||= User.new
+    id = user.id
 
     if user.admin?
       can :manage, [User, Book]
@@ -10,8 +11,10 @@ class Ability
       can :read, User
       can [:show, :search], Book
     end
-    can :manage, Review, user_id: user.id
+    can :manage, Review, user_id: id
     can :read, Review
+    can :manage, Comment, user_id: id
+    can :read, Comment
     can :show, Category
     can %i(create update destroy), ReadingHistory
   end

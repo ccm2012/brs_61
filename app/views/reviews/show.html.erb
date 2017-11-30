@@ -1,0 +1,67 @@
+<% provide :title, t("review_for.detail") %>
+
+<% header t "comment_for.show_title", param: @review.book.title %>
+
+<div class="col-md-12 review">
+  <div class="col-md-3 col-md-offset-1">
+    <%= link_to gravatar_for(@review.user, 100), @review.user %>
+    <%= link_to @review.user.name, @review.user, class: "reviewer" %></br>
+    <p><strong><%= t "book_for.rate", param: @review.rate %></strong></p>
+    <p class="time-review"><%= @review.updated_at.to_s :short %></p></br>
+    <% if @review.picture? %>
+      </br>
+      <h4><%= t "review_for.picture" %></h4>
+      <%= image_tag @review.picture.url %></br>
+    <% end %>
+  </div>
+  <div class="col-md-7 detail-review">
+    <%= link_to t("review_for.return_book"), @review.book,
+      class: "btn btn-default return-book" %>
+    <button type="button" class="btn btn-primary button-content"
+      data-toggle="modal" data-target="#myModal">
+      <%= t "review_for.book_content" %></button>
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content center">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;</button>
+            <h4 class="modal-title">
+              <%= t "book_for.content_name", param: @review.book.title %></h4>
+          </div>
+          <div class="modal-body">
+            <p><%= @review.book.content %></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default",
+              data-dismiss="modal"><%= t "book_for.close" %></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </br></br>
+    <span class="more"><%= @review.content %></span>
+  </div>
+  <div class="container" id="rerect"></div>
+  <div class="col-md-6 col-md-offset-3 detail-edit">
+    <%= link_to t("review_for.comment"), new_review_comment_path(
+        review_id: @review), id: "new-comment-#{@review.id}",
+        remote: true, class: "btn-default btn" %>
+    <% if current_user.equal_user? @review.user %>
+      <%= link_to t("book_for.delete"), @review ,method: :delete,
+        data: {confirm: t("user_for.confirm")},
+        class: "btn btn-default btn-danger" %>
+      <%= link_to t("book_for.edit"), edit_review_path(@review),
+        remote: true, id: "review-#{@review.id}",
+        class: "btn btn-default btn-success" %>
+    <% end %>
+  </div>
+</div>
+
+<% if @review.comments.any? %>
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1">
+      <%= render "comments/index", comments: @review.comments.set_order %>
+    </div>
+  </div>
+<% end %>

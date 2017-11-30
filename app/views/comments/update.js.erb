@@ -1,0 +1,2 @@
+$("#flash").html('<%= content_tag :div, flash.now[:warning], class: "alert alert-warning" %>');
+$('#edit_comment_<%= @comment.id %>').replaceWith("<%= j render('new', comment: @comment, review: @comment.review) %>");
